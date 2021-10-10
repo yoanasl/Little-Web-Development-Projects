@@ -1,0 +1,150 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Course work 2</title>
+	</head>
+	<body bgcolor="#E6B0AA">
+	<img alt="Task 02" src="canvas_part.png" />
+		<form name="data">
+		  <table><Ctr><td>
+			<b>G</b></td><td> <i>(in pixels):</i></td><td> <input type="text" name="G" value="48"></td></tr>
+			<tr><td>
+			<b>F</b></td><td> <i>(in pixels):</i></td><td> <input type="text" name="F" value="257"></td></tr>
+			</table>
+		</form>
+		<br>
+		<button onclick="draw()">Draw</button> <button onclick="clean(), draw()">Redraw</button> <button onclick="clean()">Clean</button>
+		<br>
+		<p><b>Course work 2</b> <i> (Scaling ratio 3:1)</i></p>
+		<canvas id="canvas" width="1500px" height="500px" style="border: 3px dotted #f7087f;">Your browser does not support HTML5 canvas.</canvas>
+		<script>
+			var c = document.getElementById("canvas");
+			var ctx = c.getContext("2d");
+			ctx.fillStyle = "#fafaff";
+      ctx.fillRect(0, 0, c.width, c.height);
+			function clean()
+			{ 
+			  ctx.fillStyle = "#fafaff";
+				ctx.clearRect(0, 0, c.width, c.height);
+				ctx.fillRect(0, 0, c.width, c.height);
+			}
+			function draw()
+			{
+				var G =144;
+				var F = 771;
+				if(document.data.G.value) G = 3 * Number(document.data.G.value);
+				if(document.data.F.value) F = 3 * Number(document.data.F.value);
+				//561
+				var totalWidth = 20 + F;
+				
+				console.log(totalWidth);
+				
+				ctx.beginPath();
+				ctx.setLineDash([15, 5, 2, 5]);
+				ctx.lineWidth = "1.0";
+				ctx.moveTo(3, 250);
+				ctx.lineTo(totalWidth, 250);
+				ctx.strokeStyle = '#7D0552';
+				ctx.stroke();
+				
+			
+				ctx.beginPath();
+				ctx.setLineDash([0, 0, 0, 0]);
+				ctx.lineWidth = "2";
+				ctx.strokeStyle = '#000000';
+				//B
+				ctx.moveTo(5, 205 + 3 * Math.sqrt(2));
+				ctx.lineTo(5 , 295 - 3 * Math.sqrt(2));
+				ctx.lineTo((5  + 3 * Math.sqrt(2)), 295);
+				ctx.moveTo(5, 205 + 3 * Math.sqrt(2));
+				ctx.lineTo((5 + 3 * Math.sqrt(2)), 205);
+				ctx.lineTo((5+ 3 * Math.sqrt(2)), 295);//
+				
+				ctx.lineTo(F*0.14 , 295);
+				ctx.moveTo(5+ 3 * Math.sqrt(2) , 205);
+				ctx.lineTo((F*0.14), 205);
+				//D
+			   //G
+			   ctx.moveTo(F*0.14 , 196);
+				ctx.lineTo(F*0.14  , 304);
+				ctx.lineTo(82+F*0.32, 304);//
+				ctx.moveTo(F*0.14, 196);
+				ctx.lineTo(82+F*0.32, 196);//
+			   //E
+				ctx.moveTo(82+F*0.32, 250- (G / 2));//
+				ctx.lineTo(82+F*0.32,250+ (G / 2));//
+				ctx.lineTo(45 +F*0.17+82+F*0.32, 250+ (G / 2));//
+				ctx.moveTo(82+F*0.32 , 250-(G / 2));//
+			    ctx.lineTo(45 +F*0.17+82+F*0.32, 250-(G / 2) );
+				ctx.lineTo(45+F*0.17+82+F*0.32, 250+ (G / 2)); 
+			  //G
+			  //A
+				ctx.moveTo(45+F*0.17+82+F*0.32, 185.5);
+				ctx.lineTo(45+F*0.17+82+F*0.32+F*0.01, 185.5);
+				ctx.lineTo(45+F*0.17+82+F*0.32+F*0.01, 314.5);
+				ctx.lineTo(45+F*0.17+82+F*0.32, 314.5);
+				//h
+				//K
+			
+			  ctx.moveTo(45+F*0.17+82+F*0.32+F*0.01, 185.5);
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.01, 185.5);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.01,170);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03,170);
+                
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.01, 314.5);
+               ctx.lineTo(45+F*0.17+82+F*0.32+F*0.01, 329.5);
+               ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03,329.5);
+               //
+              ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03,174- 3 * Math.sqrt(2));
+               ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+ 3 * Math.sqrt(2),176);
+               
+               ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03,324.5+ 3 * Math.sqrt(2));
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+ 3 * Math.sqrt(2),324.5);
+               ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+ 3 * Math.sqrt(2),176);
+               
+                ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03,170);
+				ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03,329.5);
+                 //J
+				
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+3 * Math.sqrt(2), 196);
+				ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+3 * Math.sqrt(2), 304);
+
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+3 * Math.sqrt(2), 196);
+			     ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27 ,196);
+                ctx.moveTo(5+F*0.17+82+F*0.32+F*0.03+45 ,304);////
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27,304);
+                ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27,304);
+				ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27,196);
+				///M
+				//B
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27,214);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,214);
+               ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27,286);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6, 286);
+                ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6, 286);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,214);
+                //M
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,286);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,291);
+                ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,214);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,209)
+                
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6 ,209);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6 ,209);//
+                 ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+6,291);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6,291);//
+                 ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6 ,291);//
+				ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6 ,209);//
+				//M
+				ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6,291);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6+4,289);
+                 ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6,209);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6+4,213);
+                ctx.moveTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6+4,213);
+                ctx.lineTo(45+F*0.17+82+F*0.32+F*0.03+F*0.27+F*0.04+6+4,289);
+				ctx.stroke();
+			}
+			
+		</script>
+	</body>
+</html>
